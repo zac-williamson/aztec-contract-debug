@@ -139,6 +139,11 @@ pub contract FogOfWarChess {
         user_state
     }
 
+    #[external("utility")]
+    unconstrained fn __get_game_secret_hashes(game_id: u32) -> [Field; 4] {
+        self.storage.game_secret_hashes.at(game_id).read()
+    }
+
     #[initializer]
     #[external("public")]
     fn setup() {}
