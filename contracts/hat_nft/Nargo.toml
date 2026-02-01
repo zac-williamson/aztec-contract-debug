@@ -1,0 +1,8 @@
+[package]
+name = "hat_nft"
+type = "contract"
+authors = [""]
+
+[dependencies]
+aztec = { git="https://github.com/AztecProtocol/aztec-nr", tag="v3.0.0-devnet.6-patch.1", directory="aztec" }
+poseidon = { tag = "v0.1.1", git = "https://github.com/noir-lang/poseidon" }
