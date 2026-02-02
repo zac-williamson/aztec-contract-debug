@@ -86,10 +86,42 @@ async function main() {
     .send({ from: giggleAddress })
     .wait();
 
+  // Test: Verify wrong password is rejected
+  let wrongPasswordFailed = false;
+  try {
+    await bobToken.methods
+      .join_game_private(0, blackState.encrypt_secret, blackState.mask_secret, [gameState.mpc_state.user_encrypt_secret_hashes[0], gameState.mpc_state.user_mask_secret_hashes[0]], 999)
+      .send({ from: aliceAddress })
+      .wait();
+  } catch (e) {
+    wrongPasswordFailed = true;
+    console.log("✓ Password protection works: wrong password (999) was rejected");
+  }
+  if (!wrongPasswordFailed) {
+    throw new Error("✗ Password protection FAILED: wrong password was accepted!");
+  }
+
+  // Test: Verify no password (0) is rejected when password is required
+  let noPasswordFailed = false;
+  try {
+    await bobToken.methods
+      .join_game_private(0, blackState.encrypt_secret, blackState.mask_secret, [gameState.mpc_state.user_encrypt_secret_hashes[0], gameState.mpc_state.user_mask_secret_hashes[0]], 0)
+      .send({ from: aliceAddress })
+      .wait();
+  } catch (e) {
+    noPasswordFailed = true;
+    console.log("✓ Password protection works: no password (0) was rejected");
+  }
+  if (!noPasswordFailed) {
+    throw new Error("✗ Password protection FAILED: missing password was accepted!");
+  }
+
+  // Test: Verify correct password is accepted
   await bobToken.methods
     .join_game_private(0, blackState.encrypt_secret, blackState.mask_secret, [gameState.mpc_state.user_encrypt_secret_hashes[0], gameState.mpc_state.user_mask_secret_hashes[0]], 3)
     .send({ from: aliceAddress })
     .wait();
+  console.log("✓ Password protection works: correct password (3) was accepted");
 
   let receipt = await bobToken.methods
     .make_move_white_private(0, gameState, whiteState, move)
