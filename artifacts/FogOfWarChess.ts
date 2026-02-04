@@ -195,8 +195,8 @@ hat_nft_address: {
     /** setup() */
     setup: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
 
-    /** sync_private_state() */
-    sync_private_state: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
+    /** sync_state() */
+    sync_state: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
   };
 
   

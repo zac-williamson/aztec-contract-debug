@@ -159,8 +159,8 @@ minter: {
     /** public_dispatch(selector: field) */
     public_dispatch: ((selector: FieldLike) => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
 
-    /** sync_private_state() */
-    sync_private_state: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
+    /** sync_state() */
+    sync_state: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
 
     /** total_supply() */
     total_supply: (() => ContractFunctionInteraction) & Pick<ContractMethod, 'selector'>;
@@ -196,7 +196,7 @@ minter: {
                         }
                     }
                 ],
-                "path": "aztec::protocol_types::address::aztec_address::AztecAddress"
+                "path": "protocol_types::address::aztec_address::AztecAddress"
             }
         },
         {
@@ -211,7 +211,7 @@ minter: {
                         }
                     }
                 ],
-                "path": "aztec::protocol_types::address::aztec_address::AztecAddress"
+                "path": "protocol_types::address::aztec_address::AztecAddress"
             }
         }
     ],
@@ -244,7 +244,7 @@ HatMinted: {
                         }
                     }
                 ],
-                "path": "aztec::protocol_types::address::aztec_address::AztecAddress"
+                "path": "protocol_types::address::aztec_address::AztecAddress"
             }
         },
         {

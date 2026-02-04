@@ -9,10 +9,10 @@
   },
   "fog_of_war_chess-FogOfWarChess.json": {
     "contractName": "FogOfWarChess",
-    "hash": "80a9cee9f1507fcd535980144b1872ad6efb71ee87212ed1ee56a78d5342f2e7"
+    "hash": "0cb50404ef34bd8e2c46f7d5cf2a5b0059caa5eaeb36246209b0264ab94be115"
   },
   "hat_nft-HatNFT.json": {
     "contractName": "HatNFT",
-    "hash": "d521988fb1f32f18e942edcc4012866cf07710ab2806ec15a92b0180747290a2"
+    "hash": "ff38bb707361a419d6f979638789d90b9a9ec3753130a6a08e0f14e478c3f862"
   }
 }
